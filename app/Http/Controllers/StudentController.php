@@ -96,7 +96,7 @@ class StudentController extends Controller
     public function create()
     {
         $classes = SchoolClass::all();
-        print_r($classes);
+        // print_r($classes);
     
         return view('students.create', compact('classes'));
     }

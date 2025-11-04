@@ -205,5 +205,58 @@
       <a href="{{ route('students.index') }}" class="btn-back">⬅ Back to List</a> -->
     </form>
   </div>
+  <!-- SweetAlert2 CDN -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector("form");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault(); // Stop default submit
+
+    // Step 1: Confirmation popup
+    Swal.fire({
+      title: 'Confirm Update?',
+      text: "Are you sure you want to update this student's information?",
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#00c6ff',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, Update it!',
+      cancelButtonText: 'Cancel',
+      background: 'rgba(25, 35, 55, 0.95)',
+      color: '#f8f9fa',
+      backdrop: `
+        rgba(0,0,0,0.4)
+        left top
+        no-repeat
+      `,
+      customClass: {
+        popup: 'swal2-glass'
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Step 2: Show "Updating..." loader
+        Swal.fire({
+          title: 'Updating...',
+          text: 'Please wait while we update the record.',
+          allowOutsideClick: false,
+          allowEscapeKey: false,
+          didOpen: () => Swal.showLoading(),
+          background: '#1e2330',
+          color: '#f8f9fa',
+        });
+
+        // Step 3: Submit after small delay
+        setTimeout(() => {
+          form.submit();
+        }, 1200);
+      }
+    });
+  });
+});
+</script>
+
 </body>
 </html>
