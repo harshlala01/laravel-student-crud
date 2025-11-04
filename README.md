@@ -7,7 +7,7 @@ Installation & Setup Guide
 Follow these simple steps to run the project on your local machine:
 
  1️⃣ Clone the Repository
-git clone https://github.com/yourusername/laravel-student-crud.git
+git clone https://github.com/harshlala01/laravel-student-crud.git
 cd laravel-student-crud
 
  2️⃣ Install Dependencies
